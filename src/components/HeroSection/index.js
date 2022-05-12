@@ -31,7 +31,7 @@ const HeroSection = () => {
             <HeroContent>
                
                 <HeroH1> 
-                  Welcome
+                 Hello Kam Semua!
                 </HeroH1>
                 <HeroH1> 
                 Thank you for visiting the SryQCode Website
