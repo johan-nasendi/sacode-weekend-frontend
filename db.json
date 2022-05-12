@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "Administarasi",
+      "email": "admin@admin.co.id",
+      "password": "admin123"
+    },
+    {
+      "name": "pachenoghe nasendi",
+      "password": "123456789",
+      "email": "admin@parmaribu.id",
+      "id": 2
+    },
+    {
+      "name": "Tes",
+      "password": "tes",
+      "email": "tes@gmail.com",
+      "id": 3
+    },
+    {
+      "name": "Jason ",
+      "password": "123456",
+      "email": "jimmy0322@gmail.com",
+      "id": 4
+    },
+    {
+      "name": "Luck",
+      "password": "luck123",
+      "email": "luck02@gmail.com",
+      "id": 5
+    },
+    {
+      "name": "Theiz Andatu",
+      "password": "12345678",
+      "email": "theiz@gmail.com",
+      "id": 6
+    }
+  ]
+}
