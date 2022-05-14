@@ -24,7 +24,7 @@ class Todo extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:4000/todos")
+        fetch("https://backend-sacodeweekend.herokuapp.com/todos")
             .then((res) => res.json())
             .then((json) => {
                 this.setState({

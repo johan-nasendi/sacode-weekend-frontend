@@ -22,7 +22,7 @@ const  CreateTodo = () => {
     const redirect=useHistory();
 
      const submit = () => {
-        Axios.post('http://localhost:4000/todos', {
+        Axios.post('https://backend-sacodeweekend.herokuapp.com/todos', {
             title : title,
             content : content,
         }).then((response) => {
