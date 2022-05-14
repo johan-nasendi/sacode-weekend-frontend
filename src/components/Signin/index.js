@@ -20,36 +20,42 @@ import {
     SosialIconLink
 } from '../Footer/FooterElements'
 import {  FaGoogle,FaGithub } from 'react-icons/fa';
+import { useHistory } from 'react-router-dom';
 
-const SignIn =  () => {
+const SignIn =  ({setIsLoggedIn}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loginstatus, setLoginstatus] = useState('');
 
-    
+    const history = useHistory();
 
-     const login = () => {
-        Axios.post('http://localhost:3001/api/login', {
+    function handleClick() {
+        Axios.post('http://localhost:4000/login', {
             email: email,
             password: password,
         }).then((response) => {
-
             if (response.data.messeage) {
                 setLoginstatus(response.data.messeage)
+                console.log(response)
             } else {
+                setIsLoggedIn(true)
                 setLoginstatus(response.data[0].email);
-                
+                history.push("/dashboard");
+                alert("Welcome!");
             }
         });
-        
-     };
+
+
+      
+      }
+     
 
     return (
         <Container>
             <FormWrap>
                 <Icon to='/'> SryQCode  {loginstatus} </Icon>
                 <FormContent>
-                    <Form action="#">
+                    <Form onSubmit={handleClick}>
                         <FormH1> Sign In </FormH1>
                         <SosialMedia>
                                  <Text> Login Method API : </Text>
@@ -66,13 +72,13 @@ const SignIn =  () => {
                             
                         <FormLabel htmlFor='for'>E-mail</FormLabel>
                         <FormInput type='email' name="email" placeholder="Enter Your Email..." 
-                          onChange={(e) =>{setEmail(e.target.value);}} required />
+                          onChange={(e) =>{setEmail(e.target.value);}}  />
 
                         <FormLabel htmlFor='for'>Password</FormLabel>
-                        <FormInput type='password' name="password" placeholder="Enter Your Password..."
-                          onChange={(e) =>{setPassword(e.target.value);}} required />
+                        <FormInput type='password' name='password' autoComplete='on' placeholder="Enter Your Password..."
+                          onChange={(e) =>{setPassword(e.target.value);}}  />
 
-                        <FormButton onClick={login}> Continue </FormButton>
+                        <FormButton> Login </FormButton>
 
                         <Text>Forgot Password</Text>
                         

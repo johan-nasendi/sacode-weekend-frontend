@@ -24,13 +24,13 @@ const  Register = () => {
     const redirect=useHistory();
 
      const submit = () => {
-        Axios.post('http://localhost:3001/api/insert', {
+        Axios.post('https://backend-sacodeweekend.herokuapp.com/register', {
             fist_name : fist_name,
             last_name : last_name,
             email: email,
             password: password,
         }).then((response) => {
-            alert("Thank You!, Please LOGIN");
+            alert("Thank you, your account has been registered!,Please verify your data via your email, Please LOGIN");
         });
         redirect.push("/signin");
      };

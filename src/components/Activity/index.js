@@ -16,16 +16,44 @@ import {
 
 } from './ActivityElements';
 
-const Activity = () => {
-    return (
-        <ActivityContainer id='activity'>
-            <ActivityH1> Activity </ActivityH1>
-            <ActivityWrapper>
+class Activity extends React.Component {
 
-                <ActivityCard>
-                    <ActivityIcon src={icon1} />
+       // Constructor 
+       constructor(props) {
+        super(props);
+   
+        this.state = {
+            items: [],
+            DataisLoaded: false
+        };
+    }
+
+    componentDidMount() {
+        fetch("https://jsonplaceholder.typicode.com/users")
+            .then((res) => res.json())
+            .then((json) => {
+                this.setState({
+                    items: json,
+                    DataisLoaded: true
+                });
+            })
+    }
+render() {
+    // const { DataisLoaded, items } = this.state;
+    // if (!DataisLoaded) return <div>
+    //     <h1> Pleses wait some time.... </h1> </div> ;
+
+return (
+    <ActivityContainer id='activity'>
+        <ActivityH1> Activity </ActivityH1>
+             
+            <ActivityWrapper>
+                <ActivityCard> 
+                    <ActivityIcon src={icon1} /> 
                     <ActivityH2> Mettings </ActivityH2>
-                    <ActivityP> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </ActivityP>
+                    <ActivityP> Lorem Ipsum is simply dummy text of the 
+                        printing and typesetting industry. 
+                        Lorem Ipsum has been the industry's </ActivityP>
                 </ActivityCard>
                 <ActivityCard>
                     <ActivityIcon src={icon2} />
@@ -37,11 +65,12 @@ const Activity = () => {
                     <ActivityH2>Watch Video </ActivityH2>
                     <ActivityP> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </ActivityP>
                 </ActivityCard>
-               
-
             </ActivityWrapper>
         </ActivityContainer>
-    );
+     );
+
+    }
+ 
 };
 
 export default Activity
